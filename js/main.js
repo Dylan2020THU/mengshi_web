@@ -174,4 +174,117 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ===========================
+  // Contact Modal Logic
+  // ===========================
+  const contactModal = document.getElementById('contactModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const contactForm = document.getElementById('contactForm');
+  const openContactBtns = document.querySelectorAll('.js-open-contact');
+
+  if (contactModal && contactForm) {
+    // Open modal
+    openContactBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+    });
+
+    // Close modal
+    const closeModal = () => {
+      contactModal.classList.remove('active');
+      document.body.style.overflow = '';
+      // Reset form and errors
+      contactForm.reset();
+      document.querySelectorAll('.form-group.error').forEach(el => el.classList.remove('error'));
+    };
+
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    // Close on outside click
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        closeModal();
+      }
+    });
+
+    // Form Validation and Submission
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+
+      // Required fields
+      const requiredFields = ['firstName', 'lastName', 'company', 'email', 'phone'];
+      requiredFields.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+          const group = input.closest('.form-group');
+          if (!input.value.trim()) {
+            group.classList.add('error');
+            isValid = false;
+          } else {
+            group.classList.remove('error');
+          }
+        }
+      });
+
+      // Checkbox
+      const privacy = document.getElementById('privacy');
+      if (privacy) {
+        const privacyGroup = privacy.closest('.checkbox-group');
+        if (!privacy.checked) {
+          privacyGroup.classList.add('error');
+          isValid = false;
+        } else {
+          privacyGroup.classList.remove('error');
+        }
+      }
+
+      if (isValid) {
+        // Collect data
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const company = document.getElementById('company').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const intent = document.getElementById('intent').value;
+        const message = document.getElementById('message').value.trim();
+
+        // Construct mailto link
+        const targetEmail = '1944199339@qq.com';
+        const subject = encodeURIComponent(`官网联系表单 - ${intent} - ${company}`);
+        const body = encodeURIComponent(
+          `您好，\n\n` +
+          `收到来自官网的新联系表单提交：\n\n` +
+          `姓名：${lastName} ${firstName}\n` +
+          `公司/机构：${company}\n` +
+          `邮箱：${email}\n` +
+          `电话：${phone}\n` +
+          `意向：${intent}\n\n` +
+          `留言内容：\n${message || '无'}\n`
+        );
+
+        // Open email client
+        window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+        
+        // Close modal after slight delay
+        setTimeout(closeModal, 500);
+      }
+    });
+
+    // Remove error state on input
+    contactForm.querySelectorAll('input, textarea, select').forEach(input => {
+      input.addEventListener('input', () => {
+        const group = input.closest('.form-group');
+        if (group && group.classList.contains('error')) {
+          group.classList.remove('error');
+        }
+      });
+    });
+  }
+
 });
