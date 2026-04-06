@@ -127,6 +127,13 @@ img {
   max-width: 220px;
 }
 
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
 .nav-list {
   display: flex;
   gap: 4px;
