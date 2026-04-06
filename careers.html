@@ -16,7 +16,7 @@
   <header class="site-header scrolled" id="siteHeader">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <img class="logo-img" src="./pic/猛狮科技公司logo.png" alt="猛狮科技" width="160" height="40" decoding="async">
+        <img class="logo-img" src="./pic/logo-猛狮科技公司.png" alt="猛狮科技" width="160" height="40" decoding="async">
         <span class="logo-text">猛狮科技</span>
       </a>
       <nav class="main-nav" id="mainNav">
@@ -36,7 +36,7 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <a href="index.html#contact" class="btn-contact">联系我们</a>
+        <a href="javascript:void(0)" class="btn-contact js-open-contact">联系我们</a>
         <button class="hamburger" id="hamburger" aria-label="菜单">
           <span></span><span></span><span></span>
         </button>
@@ -407,6 +407,71 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== CONTACT MODAL ===== -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal" aria-label="关闭">&times;</button>
+      <h2 class="modal-title">联系我们</h2>
+      <form id="contactForm" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">名字*</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="请输入名字">
+            <span class="error-msg">请输入名字</span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">姓氏*</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="请输入姓氏">
+            <span class="error-msg">请输入姓氏</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">公司/机构*</label>
+            <input type="text" id="company" name="company" required placeholder="请输入公司或机构名称">
+            <span class="error-msg">请输入公司或机构名称</span>
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱地址*</label>
+            <input type="email" id="email" name="email" required placeholder="请输入正确的邮箱地址">
+            <span class="error-msg">请输入正确的邮箱地址</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">联系方式*</label>
+            <input type="tel" id="phone" name="phone" required placeholder="请输入正确的联系方式">
+            <span class="error-msg">请输入正确的联系方式</span>
+          </div>
+          <div class="form-group">
+            <label for="intent">意向</label>
+            <select id="intent" name="intent">
+              <option value="了解关于机器人">了解关于机器人</option>
+              <option value="教培合作咨询">教培合作咨询</option>
+              <option value="交易栈入驻">交易栈入驻</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">留言</label>
+          <textarea id="message" name="message" rows="4" placeholder="应用/用户案例/痛点/目标/时间轴"></textarea>
+        </div>
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <span class="checkmark"></span>
+            我已阅读、理解隐私政策，并同意按所述存储和使用我的个人资料。*
+          </label>
+          <span class="error-msg" id="privacyError">请同意隐私政策</span>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="btn btn-primary btn-submit">提交</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

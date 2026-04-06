@@ -36,7 +36,7 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <a href="index.html#contact" class="btn-contact">联系我们</a>
+        <a href="javascript:void(0)" class="btn-contact js-open-contact">联系我们</a>
         <button class="hamburger" id="hamburger" aria-label="菜单">
           <span></span><span></span><span></span>
         </button>
@@ -90,7 +90,7 @@
         <h2 class="cta-title reveal">开启您的机器人教育之旅</h2>
         <p class="cta-text reveal">无论是备战 RoboCup 赛事、开展校园机器人课程，还是在交易栈寻找技术资源，我们都在这里。</p>
         <div class="cta-buttons reveal">
-          <a href="mailto:contact@mengshi-tech.com" class="btn btn-primary btn-lg">联系我们</a>
+          <a href="javascript:void(0)" class="btn btn-primary btn-lg js-open-contact">联系我们</a>
           <a href="index.html#exchange" class="btn btn-outline btn-lg">探索交易栈</a>
         </div>
       </div>
@@ -132,7 +132,7 @@
             <li><a href="index.html#about">关于我们</a></li>
             <li><a href="news.html">新闻动态</a></li>
             <li><a href="careers.html">加入我们</a></li>
-            <li><a href="index.html#contact">联系我们</a></li>
+            <li><a href="javascript:void(0)" class="js-open-contact">联系我们</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -155,6 +155,71 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== CONTACT MODAL ===== -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal" aria-label="关闭">&times;</button>
+      <h2 class="modal-title">联系我们</h2>
+      <form id="contactForm" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">名字*</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="请输入名字">
+            <span class="error-msg">请输入名字</span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">姓氏*</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="请输入姓氏">
+            <span class="error-msg">请输入姓氏</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">公司/机构*</label>
+            <input type="text" id="company" name="company" required placeholder="请输入公司或机构名称">
+            <span class="error-msg">请输入公司或机构名称</span>
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱地址*</label>
+            <input type="email" id="email" name="email" required placeholder="请输入正确的邮箱地址">
+            <span class="error-msg">请输入正确的邮箱地址</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">联系方式*</label>
+            <input type="tel" id="phone" name="phone" required placeholder="请输入正确的联系方式">
+            <span class="error-msg">请输入正确的联系方式</span>
+          </div>
+          <div class="form-group">
+            <label for="intent">意向</label>
+            <select id="intent" name="intent">
+              <option value="了解关于机器人">了解关于机器人</option>
+              <option value="教培合作咨询">教培合作咨询</option>
+              <option value="交易栈入驻">交易栈入驻</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">留言</label>
+          <textarea id="message" name="message" rows="4" placeholder="应用/用户案例/痛点/目标/时间轴"></textarea>
+        </div>
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <span class="checkmark"></span>
+            我已阅读、理解隐私政策，并同意按所述存储和使用我的个人资料。*
+          </label>
+          <span class="error-msg" id="privacyError">请同意隐私政策</span>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="btn btn-primary btn-submit">提交</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
