@@ -114,16 +114,17 @@ img {
   z-index: 10;
 }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  color: var(--color-primary);
+.logo-img {
+  height: 40px;
+  width: auto;
+  max-width: min(200px, 45vw);
+  object-fit: contain;
+  display: block;
 }
 
-.logo-text {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+.logo-img--footer {
+  height: 44px;
+  max-width: 220px;
 }
 
 .nav-list {
@@ -965,18 +966,34 @@ img.robot-svg {
 
 .partner-logo {
   flex-shrink: 0;
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: rgba(102, 8, 116, 0.25);
-  border: 1px solid rgba(102, 8, 116, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  min-height: 72px;
+  border: 1px solid rgba(102, 8, 116, 0.12);
   border-radius: var(--radius-sm);
-  white-space: nowrap;
-  transition: color var(--transition);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color var(--transition), background var(--transition), opacity var(--transition);
+}
+
+.partner-logo img {
+  display: block;
+  max-height: 48px;
+  width: auto;
+  max-width: min(200px, 40vw);
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity var(--transition), filter var(--transition);
 }
 
 .partner-logo:hover {
-  color: rgba(102, 8, 116, 0.6);
+  border-color: rgba(102, 8, 116, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.partner-logo:hover img {
+  opacity: 1;
 }
 
 @keyframes marquee {
