@@ -329,6 +329,25 @@ img {
   position: absolute;
   inset: 0;
   z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-bg {
+  position: absolute;
+  top: 8%;
+  bottom: 10%;
+  left: 0%;
+  right: 0%;
+  background-image: url('../pic/main_page_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6; /* 调低透明度以保证文字清晰，可根据实际图片亮度调整 */
+  border-radius: var(--radius);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
 }
 
 .hero-particles {
